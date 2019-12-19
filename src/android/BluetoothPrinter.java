@@ -122,7 +122,7 @@ public class BluetoothPrinter extends CordovaPlugin {
 	
 	// Test
 	boolean test(CallbackContext callbackContext, String name) {
-		callbackContext.success('test succes');
+		callbackContext.success("test succes");
 		return false;
 	}
 
