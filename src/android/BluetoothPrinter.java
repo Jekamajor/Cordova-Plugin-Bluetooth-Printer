@@ -187,6 +187,15 @@ public class BluetoothPrinter extends CordovaPlugin {
 	
 	// Test
 	boolean test(CallbackContext callbackContext, String name) {
+		try {
+			int portOpen = PrinterHelper.PortOpenBT("00:15:83:B9:D5:87");
+			PrinterHelper.logcat("portOpen:"+portOpen);
+			callbackContext.success(PrinterHelper.IsOpened() ? "Connected" : "Disconnected");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			callbackContext.error("cannot connect");
+		}
 		callbackContext.success(PrinterHelper.IsOpened() ? "Connected" : "Disconnected");
 		return true;
 	}
