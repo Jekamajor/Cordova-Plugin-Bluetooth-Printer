@@ -96,6 +96,16 @@ public class BluetoothPrinter extends CordovaPlugin {
     			}
     			return true;
     		}
+		else if (action.equals("test")) {
+    			try {
+    				String msg = args.getString(0);
+    				test(callbackContext, msg);
+    			} catch (IOException e) {
+    				Log.e(LOG_TAG, e.getMessage());
+    				e.printStackTrace();
+    			}
+    			return true;
+    		}
         else if (action.equals("printPOSCommand")) {
 			try {
 				String msg = args.getString(0);
@@ -106,6 +116,13 @@ public class BluetoothPrinter extends CordovaPlugin {
 			}
 			return true;
 		}
+		return false;
+	}
+	
+	
+	// Test
+	boolean test(CallbackContext callbackContext, String name) {
+		callbackContext.success('test succes');
 		return false;
 	}
 

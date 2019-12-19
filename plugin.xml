@@ -7,11 +7,11 @@
    <name>BluetoothPrinter</name>
    <description>A cordova plugin for bluetooth printer for android platform, which support text printing and POS printing.</description>
 
-   <repo>https://github.com/srehanuddin/Cordova-Plugin-Bluetooth-Printer</repo>
+   <repo>https://github.com/Jekamajor/Cordova-Plugin-Bluetooth-Printer</repo>
    <license>Apache 2.0</license>
    <keywords>cordova, bluetooth, printer, pos, text, barcode, image</keywords>
 
-   <author>Syed Rehanuddin</author>
+   <author>Jekamajor</author>
 
    <!-- cordova -->
    <engines>
@@ -34,6 +34,7 @@
          <uses-permission android:name="android.permission.BLUETOOTH" />
       </config-file>
 
+		<lib-file src="libs/CPCL_V1.04PRO.jar" />
       <source-file src="src/android/BluetoothPrinter.java" target-dir="src/com/ru/cordova/printer/bluetooth" />
 
    </platform>
