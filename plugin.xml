@@ -34,6 +34,7 @@
          <uses-permission android:name="android.permission.BLUETOOTH" />
       </config-file>
 
+	<lib-file src="libs/CPCL_V1.04PRO.jar" />
       <source-file src="src/android/BluetoothPrinter.java" target-dir="src/br/com/cordova/printer/bluetooth" />
 
    </platform>

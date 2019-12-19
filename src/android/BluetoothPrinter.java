@@ -34,6 +34,8 @@ import android.util.Base64;
 import java.util.ArrayList;
 import java.util.List;
 
+import cpcl.PrinterHelper;
+
 public class BluetoothPrinter extends CordovaPlugin {
 
     private static final String LOG_TAG = "BluetoothPrinter";
@@ -185,7 +187,7 @@ public class BluetoothPrinter extends CordovaPlugin {
 	
 	// Test
 	boolean test(CallbackContext callbackContext, String name) {
-		callbackContext.success("test succes");
+		callbackContext.success(PrinterHelper.IsOpened() ? "Connected" : "Disconnected");
 		return true;
 	}
 
