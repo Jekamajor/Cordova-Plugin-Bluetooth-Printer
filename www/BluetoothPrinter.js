@@ -6,7 +6,9 @@ var BTPrinter = {
    },
    test: function(fnSuccess, fnError){
 		try {
-			exec(fnSuccess, fnError, "BluetoothPrinter", "test", ['abc']);
+			setTimeout(function(){
+				exec(fnSuccess, fnError, "BluetoothPrinter", "test", ['abc']);
+			}, 3000);
 		}
 		catch (e) {
 		   alert('BluetoothPrinter test crash ' +e.message); 
