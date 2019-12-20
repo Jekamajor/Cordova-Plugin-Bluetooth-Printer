@@ -117,10 +117,17 @@ public class BluetoothPrinter extends CordovaPlugin {
             return true;
         } 
 		else if (action.equals("test")) {
+			try {
 				String msg = args.getString(0);
 				test(callbackContext, msg);
     			return true;
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				//e.printStackTrace();
+				callbackContext.error("catch test err");
     		}
+			return true;
+		}
 		else if (action.equals("printTextSizeAlign")) {
             try {
                 String msg = args.getString(0);

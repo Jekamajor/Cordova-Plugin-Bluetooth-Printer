@@ -5,7 +5,12 @@ var BTPrinter = {
       alert('alert ok');
    },
    test: function(fnSuccess, fnError){
-      exec(fnSuccess, fnError, "BluetoothPrinter", "test", ['abc']);
+		try {
+			exec(fnSuccess, fnError, "BluetoothPrinter", "test", ['abc']);
+		}
+		catch (e) {
+		   alert('BluetoothPrinter test crash ' +e.message); 
+		}	
    },	
     status: function (fnSuccess, fnError) {
         exec(fnSuccess, fnError, "BluetoothPrinter", "status", []);
