@@ -222,7 +222,7 @@ public class BluetoothPrinter extends CordovaPlugin {
 			thread.start();
 			
 			//PrinterHelper.logcat("portOpen:"+portOpen);
-			callbackContext.success("open: "+portOpen);
+			//callbackContext.success("open: "+portOpen);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			//e.printStackTrace();
