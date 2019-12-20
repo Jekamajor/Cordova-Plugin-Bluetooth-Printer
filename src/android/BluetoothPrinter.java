@@ -76,6 +76,8 @@ public class BluetoothPrinter extends CordovaPlugin {
     public static final byte[] BOLD_ON = { 0x1b, 0x45, 0x01 }; // Bold font ON
     public static final byte[] FONT_A = { 0x1b, 0x4d, 0x00 }; // Font type A
     public static final byte[] FONT_B = { 0x1b, 0x4d, 0x01 }; // Font type B
+	
+	private Thread thread;
 
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
@@ -199,7 +201,26 @@ public class BluetoothPrinter extends CordovaPlugin {
 				callbackContext.success("already opened");	
 				return true;				
 			}
-			int portOpen = PrinterHelper.PortOpenBT("00:15:83:B9:D5:87");
+			
+			if(mBluetoothAdapter.isDiscovering()){
+				mBluetoothAdapter.cancelDiscovery();
+			}
+			
+			thread = new Thread(new Runnable() {
+				@Override
+				public void run() {
+					// TODO Auto-generated method stub
+					try {
+						int portOpen = PrinterHelper.PortOpenBT("00:15:83:B9:D5:87");
+						//PrinterHelper.logcat("portOpen:"+portOpen);
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+			});
+			thread.start();
+			
 			//PrinterHelper.logcat("portOpen:"+portOpen);
 			callbackContext.success("open: "+portOpen);
 		} catch (Exception e) {
